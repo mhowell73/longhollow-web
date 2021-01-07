@@ -10,11 +10,13 @@ export default function Groups() {
   const modalDispatch = useModalDispatch();
 
   function handleOnClick(event) {
+    console.log(authenticated);
     if (!authenticated) {
       event.preventDefault();
       modalDispatch(showModal('Auth'));
+    } else {
+      modalDispatch(showModal('GroupFilter'));
     }
-    modalDispatch(showModal('GroupFilter'));
   }
 
   const CardwithBackground = (
